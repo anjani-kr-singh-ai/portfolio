@@ -1,0 +1,286 @@
+/* Navbar.css */
+/* Main Navbar Container */
+#anjani-navbar.anjani-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 1rem 1.5rem;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+/* Scrolled state - glass effect */
+#anjani-navbar.anjani-navbar-scrolled {
+  background-color: rgba(5, 8, 22, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+}
+
+/* Inner Container */
+#anjani-navbar-container.anjani-navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+#anjani-navbar-logo.anjani-navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.anjani-navbar-logo-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  filter: drop-shadow(0 0 8px rgba(138, 43, 226, 0.5));
+}
+
+.anjani-navbar-logo-text {
+  position: relative;
+}
+
+.anjani-navbar-logo-text::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #8A2BE2, #00BFFF);
+  transition: width 0.3s ease;
+}
+
+#anjani-navbar-logo.anjani-navbar-logo:hover .anjani-navbar-logo-text::after {
+  width: 100%;
+}
+
+.anjani-navbar-logo-accent {
+  color: #8A2BE2;
+  position: relative;
+}
+
+/* Desktop Navigation Links */
+#anjani-navbar-links-desktop.anjani-navbar-links-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #anjani-navbar-links-desktop.anjani-navbar-links-desktop {
+    display: flex;
+  }
+}
+
+.anjani-navbar-link {
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
+}
+
+.anjani-navbar-link:hover {
+  color: #8A2BE2;
+}
+
+.anjani-navbar-link-active {
+  color: #8A2BE2;
+  font-weight: 600;
+}
+
+.anjani-navbar-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #8A2BE2, #00BFFF);
+  border-radius: 1px;
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+}
+
+/* Theme Toggle Container */
+.anjani-navbar-theme-toggle {
+  margin-left: 0.5rem;
+}
+
+/* Mobile Controls */
+#anjani-navbar-mobile-controls.anjani-navbar-mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* Add padding to ensure the menu button isn't too close to the edge */
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  #anjani-navbar-mobile-controls.anjani-navbar-mobile-controls {
+    display: none;
+  }
+}
+
+.anjani-navbar-theme-toggle-mobile {
+  margin-right: 0.5rem;
+}
+
+/* Mobile Menu Button */
+#anjani-navbar-menu-button.anjani-navbar-menu-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 60;
+  /* Add margin to create space on the right side */
+  margin-right: 0.5rem;
+}
+
+.anjani-navbar-menu-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Animation for mobile menu button */
+.anjani-navbar-menu-open .anjani-navbar-menu-bar:first-child {
+  transform: translateY(9px) rotate(45deg);
+  background-color: #8A2BE2;
+}
+
+.anjani-navbar-menu-open .anjani-navbar-menu-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.anjani-navbar-menu-open .anjani-navbar-menu-bar:last-child {
+  transform: translateY(-9px) rotate(-45deg);
+  background-color: #8A2BE2;
+}
+
+/* Mobile Menu Dropdown */
+.anjani-navbar-mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: rgba(5, 8, 22, 0.95);
+  backdrop-filter: blur(15px);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 40;
+  border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.anjani-navbar-mobile-menu-open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.anjani-navbar-mobile-link {
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.anjani-navbar-mobile-link:hover {
+  background-color: rgba(138, 43, 226, 0.15);
+  color: #8A2BE2;
+}
+
+.anjani-navbar-mobile-link-active {
+  color: #8A2BE2;
+  background-color: rgba(138, 43, 226, 0.1);
+  font-weight: 600;
+  border-left: 3px solid #8A2BE2;
+}
+
+/* Advanced Hover Effects */
+.anjani-navbar-link::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #8A2BE2, #00BFFF);
+  transition: width 0.3s ease;
+  opacity: 0;
+}
+
+.anjani-navbar-link:hover::before {
+  width: 80%;
+  opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  #anjani-navbar.anjani-navbar {
+    padding: 0.75rem 1rem;
+  }
+  
+  .anjani-navbar-logo-text {
+    font-size: 1rem;
+  }
+  
+  .anjani-navbar-logo-icon {
+    font-size: 1.25rem;
+  }
+  
+  /* Increase right padding specifically for mobile view */
+  #anjani-navbar-mobile-controls.anjani-navbar-mobile-controls {
+    padding-right: 0.75rem;
+  }
+  
+  #anjani-navbar-menu-button.anjani-navbar-menu-button {
+    margin-right: 0.75rem;
+  }
+}
+
+/* Animation for navbar appearance */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#anjani-navbar.anjani-navbar {
+  animation: slideInFromTop 0.5s ease-out;
+}

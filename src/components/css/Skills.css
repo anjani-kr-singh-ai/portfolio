@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/***** ROOT VARIABLES *****/
+:root {
+  --anjani-primary: #8A2BE2;
+  --anjani-secondary: #00BFFF;
+  --anjani-accent: #FF00FF;
+  --anjani-dark: #050816;
+  --anjani-dark-lighter: #0a0e24;
+  --anjani-light: #ffffff;
+  --anjani-text: rgba(255, 255, 255, 0.9);
+  --anjani-text-muted: rgba(255, 255, 255, 0.7);
+  --anjani-text-subtle: rgba(255, 255, 255, 0.5);
+  --anjani-gradient-primary: linear-gradient(135deg, var(--anjani-primary), var(--anjani-secondary));
+  --anjani-gradient-accent: linear-gradient(135deg, var(--anjani-accent), var(--anjani-secondary));
+  --anjani-gradient-text: linear-gradient(to right, var(--anjani-primary), var(--anjani-secondary));
+  --anjani-shadow-sm: 0 2px 10px rgba(138, 43, 226, 0.15);
+  --anjani-shadow-md: 0 4px 20px rgba(138, 43, 226, 0.2);
+  --anjani-shadow-lg: 0 8px 30px rgba(138, 43, 226, 0.3);
+  --anjani-transition-fast: 0.2s;
+  --anjani-transition-med: 0.3s;
+  --anjani-transition-slow: 0.5s;
+  --anjani-border-radius-sm: 6px;
+  --anjani-border-radius-md: 12px;
+  --anjani-border-radius-lg: 20px;
+  --anjani-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --anjani-font-mono: 'Space Grotesk', monospace;
+}
+
+/***** SKILLS SECTION CONTAINER *****/
+.anjani-skills {
+  position: relative;
+  padding: 6rem 0 4rem; /* ✅ Reduced padding for mobile */
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.anjani-skills-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* ✅ Increased horizontal padding for mobile */
+  position: relative;
+  z-index: 2;
+}
+
+.anjani-skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* ✅ Reduced gap for mobile */
+  margin-top: 2rem; /* ✅ Reduced top margin for mobile */
+}
+
+/***** HEADER STYLING *****/
+.anjani-skills-header {
+  text-align: center;
+  margin-bottom: 2rem; /* ✅ Reduced margin for mobile */
+  max-width: 100%; /* ✅ Full width on mobile */
+  padding: 0 0.5rem; /* ✅ Added side padding for text containment */
+}
+
+.anjani-skills-heading {
+  font-size: clamp(1.8rem, 5vw, 3.5rem); /* ✅ Smaller minimum size for mobile */
+  font-weight: 800;
+  margin-bottom: 1rem; /* ✅ Reduced margin for mobile */
+  position: relative;
+  display: inline-block;
+  font-family: var(--anjani-font-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--anjani-light);
+}
+
+.anjani-skills-heading-accent {
+  color: transparent;
+  background: var(--anjani-gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.anjani-skills-heading-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 100%;
+  height: 3px; /* ✅ Slightly thinner line for mobile */
+  background: var(--anjani-gradient-primary);
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
+.anjani-skills-paragraph {
+  color: var(--anjani-text-muted);
+  margin-bottom: 1.25rem; /* ✅ Reduced margin for mobile */
+  font-size: 1rem; /* ✅ Smaller font size for mobile */
+  line-height: 1.6; /* ✅ Tighter line height for mobile */
+  font-family: var(--anjani-font-primary);
+  font-weight: 400;
+  max-width: 100%; /* ✅ Full width on mobile */
+  padding: 0 0.5rem; /* ✅ Added side padding for text containment */
+}
+
+.anjani-skills-paragraph strong {
+  color: var(--anjani-light);
+  font-weight: 600;
+}
+
+/***** DNA 3D VISUALIZATION STYLING *****/
+.anjani-skills-sphere {
+  width: 100%;
+  height: 300px; /* ✅ Reduced height for mobile */
+  position: relative;
+  border-radius: var(--anjani-border-radius-lg);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+  isolation: isolate;
+  margin-bottom: 1.5rem; /* ✅ Added margin to separate from list */
+}
+
+.anjani-skills-canvas {
+  border-radius: var(--anjani-border-radius-lg) !important;
+  outline: none !important;
+  touch-action: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  position: relative !important;
+  will-change: transform;
+}
+
+/***** SKILLS LIST STYLING *****/
+.anjani-skills-list {
+  width: 100%;
+  padding: 1.75rem; /* ✅ Increased padding for skills container in mobile */
+  background: rgba(10, 14, 36, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: var(--anjani-border-radius-md); /* ✅ Slightly smaller radius for mobile */
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  box-shadow: var(--anjani-shadow-md);
+}
+
+.anjani-skills-category {
+  margin-bottom: 1.75rem; /* ✅ Reduced margin for mobile */
+}
+
+.anjani-skills-category:last-child {
+  margin-bottom: 1.5rem; /* ✅ Reduced margin for mobile */
+}
+
+.anjani-skills-category-title {
+  font-size: 1.25rem; /* ✅ Smaller font size for mobile */
+  font-weight: 700;
+  margin-bottom: 1rem; /* ✅ Reduced margin for mobile */
+  color: var(--anjani-secondary);
+  font-family: var(--anjani-font-primary);
+  letter-spacing: -0.01em;
+  position: relative;
+  display: inline-block;
+}
+
+.anjani-skills-category-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px; /* ✅ Shorter underline for mobile */
+  height: 3px;
+  background: var(--anjani-gradient-primary);
+  border-radius: 2px;
+}
+
+.anjani-skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* ✅ Smaller gap for mobile */
+}
+
+.anjani-skills-chip {
+  padding: 0.5rem 1rem; /* ✅ Reduced padding for mobile */
+  background: linear-gradient(135deg, 
+    rgba(75, 0, 130, 0.7), 
+    rgba(138, 43, 226, 0.7));
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  border-radius: 50px;
+  color: var(--anjani-light);
+  font-family: var(--anjani-font-mono);
+  font-size: 0.85rem; /* ✅ Smaller font size for mobile */
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  /* ✅ Added touch target improvements */
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anjani-skills-chip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,
+    rgba(0, 191, 255, 0.7), 
+    rgba(138, 43, 226, 0.7));
+  opacity: 0;
+  transition: opacity var(--anjani-transition-med) ease;
+  z-index: -1;
+}
+
+.anjani-skills-chip-text {
+  position: relative;
+  z-index: 2;
+}
+
+.anjani-skills-chip:hover::before,
+.anjani-skills-chip:active::before { /* ✅ Added active state for touch */
+  opacity: 1;
+}
+
+/***** USER BADGE *****/
+.anjani-skills-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(138, 43, 226, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 9999px;
+  padding: 0.4rem 0.8rem; /* ✅ Reduced padding for mobile */
+  margin-bottom: 1.25rem; /* ✅ Reduced margin for mobile */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--anjani-shadow-sm);
+}
+
+.anjani-skills-badge-icon {
+  margin-right: 0.4rem; /* ✅ Reduced margin for mobile */
+  font-size: 0.9rem; /* ✅ Smaller icon for mobile */
+}
+
+.anjani-skills-badge-text {
+  font-size: 0.8rem; /* ✅ Smaller text for mobile */
+  color: var(--anjani-text);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* ✅ Reduced gap for mobile */
+  font-family: var(--anjani-font-mono);
+}
+
+.anjani-skills-badge-login {
+  font-weight: 600;
+  color: var(--anjani-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* ✅ Limited width for mobile */
+}
+
+/***** TIMESTAMP BADGE *****/
+.anjani-skills-timestamp {
+  position: absolute;
+  top: 1rem; /* ✅ Moved closer to top for mobile */
+  right: 1rem; /* ✅ Moved closer to edge for mobile */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* ✅ Reduced gap for mobile */
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 43, 226, 0.15);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem; /* ✅ Reduced padding for mobile */
+  font-size: 0.75rem; /* ✅ Smaller font for mobile */
+  color: var(--anjani-text-subtle);
+  font-family: var(--anjani-font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em; /* ✅ Reduced letter spacing for mobile */
+  z-index: 10;
+}
+
+.anjani-skills-timestamp-icon {
+  color: var(--anjani-primary);
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem; /* ✅ Smaller icon for mobile */
+}
+
+.anjani-skills-timestamp-text {
+  white-space: nowrap;
+}
+
+/***** CTA BUTTONS *****/
+.anjani-skills-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* ✅ Reduced gap for mobile */
+  margin-top: 0.75rem; /* ✅ Reduced margin for mobile */
+}
+
+.anjani-skills-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.5rem; /* ✅ Reduced padding for mobile */
+  border-radius: var(--anjani-border-radius-sm);
+  font-family: var(--anjani-font-primary);
+  font-size: 0.95rem; /* ✅ Smaller font for mobile */
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--anjani-transition-med) ease;
+  letter-spacing: 0.01em;
+  /* ✅ Added touch target improvements */
+  min-height: 44px;
+  min-width: 120px;
+}
+
+.anjani-skills-primary-button {
+  background: var(--anjani-gradient-primary);
+  color: white;
+  border: none;
+  box-shadow: var(--anjani-shadow-md);
+}
+
+.anjani-skills-secondary-button {
+  background: transparent;
+  color: var(--anjani-light);
+  border: 1px solid rgba(138, 43, 226, 0.5);
+}
+
+/* ✅ Added touch highlight for mobile */
+.anjani-skills-button:active {
+  transform: translateY(1px);
+  opacity: 0.9;
+}
+
+.anjani-skills-button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.anjani-skills-button-icon {
+  margin-left: 0.4rem; /* ✅ Reduced margin for mobile */
+  transition: transform var(--anjani-transition-fast) ease;
+  position: relative;
+  z-index: 2;
+}
+
+.anjani-skills-primary-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--anjani-gradient-accent);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity var(--anjani-transition-med) ease;
+}
+
+.anjani-skills-primary-button:hover::before,
+.anjani-skills-primary-button:active::before { /* ✅ Added active state for touch */
+  opacity: 0.8;
+}
+
+/***** SCROLL INDICATOR *****/
+.anjani-skills-scroll-indicator {
+  position: absolute;
+  bottom: 1.5rem; /* ✅ Moved higher for mobile */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem; /* ✅ Reduced gap for mobile */
+  z-index: 10;
+}
+
+.anjani-skills-scroll-indicator-text {
+  font-size: 0.75rem; /* ✅ Smaller font for mobile */
+  font-family: var(--anjani-font-mono);
+  color: var(--anjani-text-subtle);
+  letter-spacing: 0.03em; /* ✅ Reduced letter spacing for mobile */
+}
+
+.anjani-skills-scroll-indicator-arrow {
+  width: 1.25rem; /* ✅ Smaller arrow for mobile */
+  height: 1.25rem; /* ✅ Smaller arrow for mobile */
+  border-right: 2px solid var(--anjani-primary);
+  border-bottom: 2px solid var(--anjani-primary);
+  transform: rotate(45deg);
+  opacity: 0.6;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translate(-5px, -5px); }
+  50% { transform: rotate(45deg) translate(0, 0); }
+}
+
+/***** ACCESSIBILITY & MOTION PREFERENCES *****/
+@media (prefers-reduced-motion: reduce) {
+  .anjani-skills-decoration,
+  .anjani-skills-button-icon,
+  .anjani-skills-scroll-indicator-arrow,
+  .anjani-skills-sphere::before {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .anjani-skills-button:hover,
+  .anjani-skills-chip:hover {
+    transform: none;
+  }
+}
+
+/* Hide decorative elements to improve performance */
+.anjani-skills-sphere::before,
+.anjani-skills-sphere::after,
+.anjani-skills::before,
+.anjani-skills::after,
+.anjani-skills-decoration {
+  display: none !important;
+  content: none !important;
+}
+
+/* Prevent layout shifts and improve performance */
+.anjani-skills-sphere,
+.anjani-skills-wrapper {
+  transform: none !important;
+  transition: none !important;
+  will-change: auto;
+}
+
+/* ✅ Added media queries with mobile-first approach */
+/* Small mobile devices */
+@media (max-width: 374px) {
+  .anjani-skills-heading {
+    font-size: 1.6rem;
+  }
+  
+  .anjani-skills-badge-login {
+    max-width: 100px;
+  }
+  
+  .anjani-skills-timestamp {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .anjani-skills-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .anjani-skills-list {
+    padding: 1.25rem; /* Adjust padding for very small devices */
+  }
+}
+
+/* Tablet and larger */
+@media (min-width: 600px) {
+  .anjani-skills {
+    padding: 8rem 0 6rem;
+  }
+  
+  .anjani-skills-container {
+    padding: 0 2rem; /* Increased side padding for tablets */
+  }
+  
+  .anjani-skills-heading {
+    font-size: 2.2rem;
+  }
+  
+  .anjani-skills-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .anjani-skills-sphere {
+    height: 400px;
+  }
+  
+  .anjani-skills-list {
+    padding: 2rem;
+  }
+  
+  .anjani-skills-category-title {
+    font-size: 1.4rem;
+  }
+  
+  .anjani-skills-chip {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .anjani-skills-wrapper {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .anjani-skills-sphere {
+    width: 50%;
+    height: auto;
+    min-height: 450px; /* ✅ Adjusted for medium screens */
+    position: sticky;
+    top: 100px;
+  }
+
+  .anjani-skills-list {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem; /* Increased padding for larger screens */
+  }
+  
+  .anjani-skills-header {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .anjani-skills-heading {
+    font-size: 2.5rem;
+  }
+  
+  .anjani-skills-paragraph {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .anjani-skills {
+    padding: 12rem 0 8rem;
+  }
+  
+  .anjani-skills-container {
+    padding: 0 3rem;
+  }
+
+  .anjani-skills-wrapper {
+    gap: 4rem;
+  }
+  
+  .anjani-skills-heading {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  
+  .anjani-skills-paragraph {
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+  
+  .anjani-skills-sphere {
+    min-height: 550px;
+  }
+  
+  .anjani-skills-list {
+    padding: 2.5rem; /* Increased padding for larger screens */
+  }
+  
+  .anjani-skills-category-title {
+    font-size: 1.75rem;
+  }
+  
+  .anjani-skills-chip {
+    font-size: 1rem;
+    padding: 0.65rem 1.25rem;
+  }
+  
+  .anjani-skills-badge-login {
+    max-width: 200px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1280px) {
+  .anjani-skills-container {
+    padding: 0 4rem;
+  }
+
+  .anjani-skills-wrapper {
+    gap: 6rem;
+  }
+  
+  .anjani-skills-header {
+    max-width: 800px;
+  }
+  
+  .anjani-skills-paragraph {
+    max-width: 600px;
+  }
+  
+  .anjani-skills-list {
+    padding: 2.75rem; /* Increased padding for very large screens */
+  }
+}
+
+/* ✅ Added touch device optimizations */
+@media (hover: none) {
+  .anjani-skills-button:hover {
+    transform: none;
+  }
+  
+  .anjani-skills-button:hover .anjani-skills-button-icon {
+    transform: none;
+  }
+  
+  /* Make tap targets bigger */
+  .anjani-skills-chip {
+    min-height: 40px;
+  }
+  
+  .anjani-skills-button {
+    min-height: 48px;
+  }
+}
+
+/* ✅ Fix for safe area on iOS devices */
+@supports (padding: max(0px)) {
+  .anjani-skills-container {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+  
+  .anjani-skills-timestamp {
+    right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+

@@ -1,0 +1,739 @@
+/***** CONTACT SECTION STYLING *****/
+:root {
+  --anjani-primary: #8A2BE2;
+  --anjani-secondary: #00BFFF;
+  --anjani-accent: #FF00FF;
+  --anjani-dark: #050816;
+  --anjani-dark-lighter: #0a0e24;
+  --anjani-light: #ffffff;
+  --anjani-text: rgba(255, 255, 255, 0.9);
+  --anjani-text-muted: rgba(255, 255, 255, 0.7);
+  --anjani-text-subtle: rgba(255, 255, 255, 0.5);
+  --anjani-gradient-primary: linear-gradient(135deg, #8A2BE2, #00BFFF);
+  --anjani-gradient-accent: linear-gradient(135deg, #FF00FF, #00BFFF);
+  --anjani-shadow-sm: 0 2px 10px rgba(138, 43, 226, 0.15);
+  --anjani-shadow-md: 0 4px 20px rgba(138, 43, 226, 0.2);
+  --anjani-shadow-lg: 0 8px 30px rgba(138, 43, 226, 0.3);
+}
+
+.anjani-contact {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  background: transparent;
+  z-index: 1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 100%;
+}
+
+.anjani-contact-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+.anjani-contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.anjani-contact-heading {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--anjani-light);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  position: relative;
+  display: inline-block;
+}
+
+.anjani-contact-heading-accent {
+  color: transparent;
+  background: var(--anjani-gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.anjani-contact-heading-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--anjani-gradient-primary);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.anjani-contact-paragraph {
+  font-size: 1.2rem;
+  color: var(--anjani-text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Contact Layout */
+.anjani-contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: flex-start; /* Changed from start to flex-start */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Form Styling */
+.anjani-contact-form-container {
+  background: rgba(10, 14, 36, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  box-shadow: var(--anjani-shadow-md);
+  padding: 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto; /* Changed from 100% to auto */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 520px; /* Set min-height to match canvas container */
+  max-width: 100%;
+}
+
+.anjani-contact-form-container:hover {
+  box-shadow: var(--anjani-shadow-lg);
+  transform: translateY(-5px);
+}
+
+.anjani-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-grow: 1; /* Take up available space */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.anjani-form-group {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.anjani-form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--anjani-text);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+/* Fix for input fields spacing */
+.anjani-form-input,
+.anjani-form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(5, 8, 22, 0.8);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 12px;
+  color: var(--anjani-light);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box; /* Critical for proper spacing */
+  margin: 0; /* Remove any default margins */
+  max-width: 100%; /* Ensure they don't exceed container width */
+}
+
+.anjani-form-input:focus,
+.anjani-form-textarea:focus {
+  outline: none;
+  border-color: var(--anjani-primary);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.15);
+}
+
+.anjani-form-input::placeholder,
+.anjani-form-textarea::placeholder {
+  color: var(--anjani-text-subtle);
+}
+
+.anjani-form-textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Submit Button Styling */
+.anjani-submit-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  background: var(--anjani-gradient-primary);
+  border: none;
+  border-radius: 50px;
+  color: var(--anjani-light);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--anjani-shadow-sm);
+  width: 100%; /* Make button full width */
+  box-sizing: border-box;
+  margin-top: 8px;
+}
+
+.anjani-submit-button:hover {
+  box-shadow: var(--anjani-shadow-md);
+  transform: translateY(-2px);
+}
+
+.anjani-submit-button:active {
+  transform: translateY(1px);
+}
+
+.anjani-submit-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--anjani-gradient-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.anjani-submit-button:hover::before {
+  opacity: 1;
+}
+
+.anjani-submit-button-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center text and icon */
+  gap: 8px;
+}
+
+.anjani-submit-button-icon {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.anjani-submit-button:hover .anjani-submit-button-icon {
+  transform: translateX(4px);
+}
+
+/* Button states */
+.anjani-submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.anjani-submit-button.sending {
+  background: linear-gradient(135deg, #4B0082, #8A2BE2);
+}
+
+.anjani-submit-button.success {
+  background: linear-gradient(135deg, #2E8B57, #3CB371);
+}
+
+/* 3D Canvas Container */
+.anjani-contact-canvas-container {
+  height: 450px; /* Adjusted height for desktop */
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(10, 14, 36, 0.3);
+  border: 1px solid rgba(138, 43, 226, 0.1);
+  box-shadow: inset 0 0 30px rgba(138, 43, 226, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  aspect-ratio: 4/3; /* Maintain aspect ratio */
+  max-height: 450px; /* Cap maximum height */
+}
+
+/* Social Links */
+.anjani-social-container {
+  margin-top: 40px;
+  text-align: center; /* Center all content */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.anjani-social-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--anjani-secondary);
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.anjani-social-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--anjani-gradient-primary);
+  border-radius: 2px;
+}
+
+.anjani-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.anjani-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(10, 14, 36, 0.6);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 50%;
+  color: var(--anjani-light);
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--anjani-shadow-sm);
+}
+
+.anjani-social-link:hover {
+  color: var(--anjani-primary);
+  background: rgba(138, 43, 226, 0.1);
+  border-color: rgba(138, 43, 226, 0.5);
+  transform: translateY(-5px);
+  box-shadow: var(--anjani-shadow-md);
+}
+
+/* Status Messages */
+.anjani-form-status {
+  margin-top: 16px;
+  padding: 12px;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.anjani-form-status.success {
+  background: rgba(46, 139, 87, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(46, 139, 87, 0.3);
+}
+
+.anjani-form-status.error {
+  background: rgba(220, 38, 38, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+/* Decorative elements */
+.anjani-contact-decoration {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.anjani-contact-decoration.glow-1 {
+  bottom: -100px;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: var(--anjani-primary);
+  filter: blur(150px);
+  opacity: 0.1;
+}
+
+.anjani-contact-decoration.glow-2 {
+  top: -50px;
+  right: 5%;
+  width: 250px;
+  height: 250px;
+  background: var(--anjani-secondary);
+  filter: blur(130px);
+  opacity: 0.08;
+}
+
+/* Contact timestamp */
+.anjani-contact-timestamp {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 43, 226, 0.15);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--anjani-text-subtle);
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+.anjani-contact-timestamp-icon {
+  color: var(--anjani-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* User badge */
+.anjani-contact-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  background: rgba(138, 43, 226, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--anjani-shadow-sm);
+  z-index: 10;
+}
+
+.anjani-contact-badge-icon {
+  margin-right: 8px;
+  color: var(--anjani-secondary);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anjani-contact-badge-text {
+  font-size: 0.85rem;
+  color: var(--anjani-text);
+  font-family: 'Space Grotesk', monospace;
+  display: flex;
+  align-items: center;
+}
+
+.anjani-contact-badge-login {
+  font-weight: 600;
+  color: var(--anjani-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+/* Form input shine effect */
+.anjani-form-input,
+.anjani-form-textarea {
+  position: relative;
+  overflow: hidden;
+}
+
+.anjani-form-input::after,
+.anjani-form-textarea::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.anjani-form-input:focus::after,
+.anjani-form-textarea:focus::after {
+  animation: shine 1.5s infinite;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+/* Right column container (contains canvas and social links) */
+.anjani-contact-right-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+/* Desktop specific adjustments */
+@media (min-width: 1200px) {
+  .anjani-contact-container {
+    padding: 0 40px;
+  }
+  
+  .anjani-contact-form-container {
+    padding: 32px 36px;
+  }
+  
+  .anjani-form-input,
+  .anjani-form-textarea {
+    padding: 14px 18px; /* Slightly larger padding on desktop */
+  }
+}
+
+/* Medium desktop adjustments */
+@media (min-width: 993px) and (max-width: 1199px) {
+  .anjani-contact-form-container {
+    padding: 28px 32px;
+  }
+  
+  .anjani-contact-canvas-container {
+    height: 420px;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .anjani-contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .anjani-contact-canvas-container {
+    height: 350px;
+  }
+  
+  .anjani-contact-heading {
+    font-size: 2.8rem;
+  }
+  
+  .anjani-contact-form-container {
+    order: 1; /* Form comes first on mobile */
+    min-height: auto;
+  }
+  
+  .anjani-contact-right-column {
+    order: 2; /* Canvas and social links come second on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .anjani-contact {
+    padding: 80px 0;
+  }
+  
+  .anjani-contact-container {
+    padding: 0 16px; /* Reduced side padding for better mobile fit */
+  }
+  
+  .anjani-contact-header {
+    margin-bottom: 40px;
+  }
+  
+  .anjani-contact-heading {
+    font-size: 2.5rem;
+  }
+  
+  .anjani-contact-form-container {
+    padding: 24px 20px; /* Adjusted padding for mobile */
+  }
+  
+  .anjani-contact-canvas-container {
+    height: 300px;
+  }
+  
+  .anjani-form-input,
+  .anjani-form-textarea {
+    padding: 12px 14px; /* Slightly reduced padding on smaller screens */
+  }
+  
+  .anjani-social-links {
+    gap: 16px;
+  }
+  
+  .anjani-social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .anjani-contact-badge,
+  .anjani-contact-timestamp {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .anjani-contact-badge {
+    left: 16px;
+    top: 16px;
+  }
+  
+  .anjani-contact-timestamp {
+    right: 16px;
+    top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .anjani-contact-heading {
+    font-size: 2rem;
+  }
+  
+  .anjani-contact-paragraph {
+    font-size: 1rem;
+  }
+  
+  .anjani-contact-form-container {
+    padding: 20px 16px;
+  }
+  
+  .anjani-contact-canvas-container {
+    height: 250px;
+  }
+  
+  .anjani-submit-button {
+    padding: 12px 20px;
+  }
+  
+  .anjani-contact-badge {
+    top: 12px;
+    left: 12px;
+  }
+  
+  .anjani-contact-timestamp {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .anjani-contact-badge-login {
+    max-width: 100px;
+  }
+  
+  .anjani-form-input, 
+  .anjani-form-textarea {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Fix for ios devices */
+@supports (-webkit-touch-callout: none) {
+  .anjani-form-input,
+  .anjani-form-textarea {
+    font-size: 16px; /* Prevent iOS zoom on input focus */
+  }
+}
+
+/* Ensure box-sizing is consistently applied */
+.anjani-contact *,
+.anjani-contact *::before,
+.anjani-contact *::after {
+  box-sizing: border-box;
+}
+
+/* Accessibility styles */
+@media (prefers-reduced-motion: reduce) {
+  .anjani-submit-button,
+  .anjani-social-link,
+  .anjani-contact-form-container,
+  .anjani-form-input::after,
+  .anjani-form-textarea::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .anjani-submit-button:hover,
+  .anjani-social-link:hover,
+  .anjani-contact-form-container:hover {
+    transform: none;
+  }
+}
+
+/* Direct contact button styling */
+.anjani-direct-contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--anjani-primary), var(--anjani-secondary));
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--anjani-shadow-sm);
+}
+
+.anjani-direct-contact-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--anjani-shadow-lg);
+}
+
+.anjani-direct-contact-button:active {
+  transform: translateY(1px);
+}
+
+.anjani-direct-contact-icon {
+  font-size: 1.1rem;
+}
+
+.anjani-direct-contact-text {
+  white-space: nowrap;
+}
+
+/* Mobile responsiveness for direct contact button */
+@media (max-width: 480px) {
+  .anjani-direct-contact-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

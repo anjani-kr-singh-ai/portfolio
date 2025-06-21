@@ -1,0 +1,225 @@
+/* Skills Component - Unique CSS with Glassy UI and Animation Effects */
+
+.skillsContainer {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.skillsContainer::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at top right, rgba(138, 43, 226, 0.15), transparent 60%);
+  pointer-events: none;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fff, #d6bcfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sectionTitle span {
+  background: linear-gradient(to right, #8a2be2, #da70d6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.sectionTitle span::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #8a2be2, #da70d6);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineAnimation 1.5s forwards 0.5s;
+}
+
+@keyframes underlineAnimation {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.sectionDescription {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.canvasContainer {
+  height: 400px;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.loadingCanvas {
+  opacity: 0.3;
+  filter: blur(5px);
+}
+
+.canvasContainer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glassPanel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.categoryHeading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  background: linear-gradient(to right, #8a2be2, #da70d6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.categoryHeading::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(to right, #8a2be2, #da70d6);
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.skillBadge {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.skillBadge:hover {
+  background: rgba(138, 43, 226, 0.2);
+  border-color: rgba(138, 43, 226, 0.5);
+  transform: translateY(-3px);
+}
+
+.glow {
+  position: relative;
+}
+
+.glow::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.skillBadge:hover.glow::after {
+  opacity: 1;
+}
+
+.staggered > div {
+  margin-bottom: 1.5rem;
+}
+
+.fadeIn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpAnimation 0.5s forwards;
+}
+
+@keyframes fadeInUpAnimation {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skillsContainer {
+    padding: 4rem 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .canvasContainer {
+    height: 300px;
+    margin-bottom: 2rem;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+/* Animation for the skills sphere when it comes into view */
+@keyframes sphereAppear {
+  0% { 
+    opacity: 0;
+    transform: scale(0.8) rotate(15deg);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.canvasContainer canvas {
+  animation: sphereAppear 1.2s ease-out forwards;
+}

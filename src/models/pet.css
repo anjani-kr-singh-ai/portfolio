@@ -1,0 +1,330 @@
+/* Pet Styling */
+.pet {
+  position: fixed;
+  width: 120px;
+  height: 100px;
+  z-index: 9999;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Main body parts */
+.pet-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Head */
+.head {
+  position: absolute;
+  width: 60px;
+  height: 55px;
+  top: 0;
+  left: 30px;
+  background: linear-gradient(145deg, #f0d6b7, #d4ae8b);
+  border-radius: 50% 50% 40% 40%;
+  box-shadow: 
+    0 3px 10px rgba(0, 0, 0, 0.2),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+/* Ears */
+.ears {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ear {
+  position: absolute;
+  width: 22px;
+  height: 30px;
+  top: -20px;
+  background: linear-gradient(145deg, #f0d6b7, #d4ae8b);
+  border-radius: 50% 90% 0 0;
+  transform-origin: bottom center;
+  z-index: 5;
+}
+
+.left-ear {
+  left: 8px;
+  transform: rotate(-10deg);
+}
+
+.right-ear {
+  right: 8px;
+  transform: rotate(10deg);
+}
+
+.ear-inner {
+  position: absolute;
+  width: 14px;
+  height: 22px;
+  top: 2px;
+  left: 4px;
+  background: #e6b3a4;
+  border-radius: 50% 60% 0 0;
+  opacity: 0.8;
+}
+
+/* Face */
+.face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Eyes */
+.eyes {
+  position: absolute;
+  width: 100%;
+  top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.eye {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.pupil {
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  top: 0;
+  left: 3px;
+  transition: all 0.1s ease;
+}
+
+.pet.moving .pupil {
+  width: 4px;
+  height: 10px;
+}
+
+.eyelid {
+  position: absolute;
+  width: 14px;
+  height: 0px;
+  background: #d4ae8b;
+  top: 0;
+  left: -1px;
+  transition: height 0.1s ease;
+  z-index: 5;
+}
+
+.pet.blinking .eyelid {
+  height: 14px;
+}
+
+/* Nose */
+.nose {
+  position: absolute;
+  width: 8px;
+  height: 6px;
+  background: #ff9a9e;
+  border-radius: 50%;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Mouth */
+.mouth {
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  border-bottom: 2px solid #a88a75;
+  border-radius: 0 0 50% 50%;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Whiskers */
+.whiskers {
+  position: absolute;
+  width: 100%;
+  top: 30px;
+}
+
+.whisker {
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.w1 {
+  top: 0;
+  left: -18px;
+  transform: rotate(-10deg);
+}
+
+.w2 {
+  top: 4px;
+  left: -20px;
+}
+
+.w3 {
+  top: 8px;
+  left: -18px;
+  transform: rotate(10deg);
+}
+
+.w4 {
+  top: 0;
+  right: -18px;
+  transform: rotate(10deg);
+}
+
+.w5 {
+  top: 4px;
+  right: -20px;
+}
+
+.w6 {
+  top: 8px;
+  right: -18px;
+  transform: rotate(-10deg);
+}
+
+/* Torso */
+.torso {
+  position: absolute;
+  width: 70px;
+  height: 45px;
+  background: linear-gradient(145deg, #f0d6b7, #d4ae8b);
+  border-radius: 40% 40% 50% 50%;
+  top: 40px;
+  left: 25px;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.2),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 8;
+}
+
+/* Legs */
+.legs {
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  z-index: 7;
+}
+
+.leg {
+  position: absolute;
+  width: 10px;
+  height: 25px;
+  background: linear-gradient(145deg, #e0c6a7, #c4a080);
+  border-radius: 30% 30% 20% 20%;
+}
+
+.front-left {
+  left: 30px;
+}
+
+.front-right {
+  left: 50px;
+}
+
+.back-left {
+  left: 25px;
+  top: 10px;
+}
+
+.back-right {
+  left: 55px;
+  top: 10px;
+}
+
+/* Tail */
+.tail {
+  position: absolute;
+  width: 8px;
+  height: 40px;
+  background: linear-gradient(145deg, #e0c6a7, #c4a080);
+  border-radius: 0 0 50% 50%;
+  top: 50px;
+  right: 5px;
+  transform-origin: top center;
+  animation: tailWag 2s infinite ease-in-out;
+  z-index: 6;
+}
+
+/* Meow speech bubble */
+.meow-bubble {
+  position: absolute;
+  top: -30px;
+  right: 0;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  animation: fadeInOut 1s ease-in-out;
+  z-index: 20;
+}
+
+/* Animations */
+@keyframes tailWag {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(20deg); }
+  75% { transform: rotate(-20deg); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 1; }
+}
+
+.pet.moving .legs {
+  animation: legMovement 0.3s infinite alternate;
+}
+
+.pet.moving .tail {
+  animation: tailWagFast 0.5s infinite ease-in-out;
+}
+
+@keyframes legMovement {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(2px); }
+}
+
+@keyframes tailWagFast {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(30deg); }
+  75% { transform: rotate(-30deg); }
+}
+
+/* Additional visual effects */
+.pet::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 70%);
+  bottom: -10px;
+  left: 0;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pet {
+    transform: scale(0.8);
+  }
+}

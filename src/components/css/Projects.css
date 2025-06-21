@@ -1,0 +1,306 @@
+/* Projects Section Styling */
+.anjani-projects {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  background: var(--anjani-dark);
+}
+
+.anjani-projects-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+/* Header Styles */
+.anjani-projects-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.anjani-projects-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--anjani-light);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  font-family: var(--anjani-font-primary);
+}
+
+.anjani-projects-heading-accent {
+  background: var(--anjani-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.anjani-projects-heading-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--anjani-gradient-primary);
+  border-radius: 2px;
+}
+
+.anjani-projects-paragraph {
+  font-size: 1.2rem;
+  color: var(--anjani-text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Projects Layout */
+.anjani-projects-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+}
+
+/* 3D Model Container */
+.anjani-projects-model-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: var(--anjani-border-radius-lg);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--anjani-shadow-lg);
+}
+
+.anjani-projects-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  outline: none !important;
+}
+
+/* Override Three.js default canvas styles */
+canvas {
+  display: block !important;
+}
+
+/* Projects List */
+.anjani-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.anjani-project-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--anjani-border-radius-md);
+  padding: 24px;
+  transition: all var(--anjani-transition-fast) ease;
+}
+
+.anjani-project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--anjani-light);
+  margin-bottom: 12px;
+}
+
+.anjani-project-description {
+  font-size: 1rem;
+  color: var(--anjani-text-muted);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.anjani-project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.anjani-project-tech {
+  background: rgba(138, 43, 226, 0.15);
+  color: var(--anjani-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.anjani-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--anjani-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--anjani-transition-fast) ease;
+}
+
+.anjani-project-link:hover {
+  color: var(--anjani-primary);
+}
+
+.anjani-project-link-icon {
+  font-size: 1.1rem;
+}
+
+/* CTA Section */
+.anjani-projects-cta {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+/* Button Styles */
+.anjani-projects-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all var(--anjani-transition-fast) ease;
+}
+
+.anjani-projects-primary-button {
+  background: var(--anjani-gradient-primary);
+  color: var(--anjani-light);
+  box-shadow: var(--anjani-shadow-md);
+}
+
+.anjani-projects-primary-button:hover {
+  box-shadow: var(--anjani-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.anjani-projects-secondary-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--anjani-light);
+}
+
+.anjani-projects-secondary-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.anjani-projects-button-icon {
+  font-size: 1.2rem;
+}
+
+/* Decorative Elements */
+.anjani-projects-decoration {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.circle-1 {
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.2) 0%, transparent 70%);
+}
+
+.circle-2 {
+  bottom: 20%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.15) 0%, transparent 70%);
+}
+
+.line {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent
+  );
+}
+
+.grid {
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  height: 40%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .anjani-projects-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .anjani-projects-model-container {
+    height: 450px;
+    order: 2;
+  }
+  
+  .anjani-projects-list {
+    order: 1;
+  }
+  
+  .anjani-projects-heading {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .anjani-projects {
+    padding: 80px 0;
+  }
+  
+  .anjani-projects-header {
+    margin-bottom: 50px;
+  }
+  
+  .anjani-projects-heading {
+    font-size: 2.5rem;
+  }
+  
+  .anjani-project-card {
+    padding: 20px;
+  }
+  
+  .anjani-projects-cta {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .anjani-projects-model-container {
+    height: 350px;
+  }
+  
+  .anjani-projects-heading {
+    font-size: 2rem;
+  }
+  
+  .anjani-projects-paragraph {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,556 @@
+/* Introduction.css - Responsive positioning fixes for robot model */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+/***** ROOT VARIABLES *****/
+:root {
+  --anjani-primary: #8A2BE2;
+  --anjani-secondary: #00BFFF;
+  --anjani-accent: #FF00FF;
+  --anjani-dark: #050816;
+  --anjani-light: #ffffff;
+  --anjani-gradient-primary: linear-gradient(135deg, var(--anjani-primary), var(--anjani-secondary));
+  --anjani-gradient-accent: linear-gradient(135deg, var(--anjani-accent), var(--anjani-secondary));
+  --anjani-gradient-text: linear-gradient(to right, var(--anjani-primary), var(--anjani-secondary));
+  --anjani-shadow-sm: 0 2px 10px rgba(138, 43, 226, 0.15);
+  --anjani-shadow-md: 0 4px 20px rgba(138, 43, 226, 0.2);
+  --anjani-shadow-lg: 0 8px 30px rgba(138, 43, 226, 0.3);
+  --anjani-transition-fast: 0.2s;
+  --anjani-transition-med: 0.3s;
+  --anjani-transition-slow: 0.5s;
+}
+
+/***** CRITICAL FIXES FOR SCROLLING *****/
+html, body {
+  overflow-y: auto !important; 
+  height: auto !important;
+  min-height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/***** MAIN CONTAINER *****/
+#anjani-intro.anjani-intro {
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  padding: 6rem 1rem;
+  background-color: var(--anjani-dark);
+  font-family: 'Inter', sans-serif;
+  z-index: 1;
+}
+
+/***** CONTAINER LAYOUT *****/
+.anjani-intro-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+/***** BADGE STYLING *****/
+.anjani-intro-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(138, 43, 226, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--anjani-shadow-sm);
+}
+
+.anjani-intro-badge-icon {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.anjani-intro-badge-text {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.anjani-intro-badge-date {
+  font-family: 'Space Grotesk', monospace;
+  color: var(--anjani-secondary);
+}
+
+.anjani-intro-badge-separator {
+  opacity: 0.5;
+}
+
+.anjani-intro-badge-login {
+  font-weight: 500;
+}
+
+/***** TEXT CONTENT STYLING *****/
+.anjani-intro-content {
+  text-align: center;
+  max-width: 44rem;
+  padding: 0 1rem;
+  z-index: 5;
+}
+
+.anjani-intro-subtitle {
+  font-size: clamp(1.125rem, 4vw, 1.5rem);
+  font-weight: 500;
+  color: var(--anjani-secondary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+}
+
+.anjani-intro-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 800;
+  margin: 0.5rem 0 1.5rem;
+  background: var(--anjani-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  position: relative;
+  display: inline-block;
+}
+
+.anjani-intro-title::after {
+  content: '';
+  position: absolute;
+  width: 30%;
+  height: 5px;
+  bottom: -0.5rem;
+  left: 35%;
+  background: var(--anjani-gradient-primary);
+  border-radius: 5px;
+}
+
+.anjani-intro-wave {
+  display: inline-block;
+  animation: wave 2.5s infinite;
+  transform-origin: 70% 70%;
+  margin-left: 0.5rem;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.anjani-intro-description {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  margin: 1.5rem 0 2.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.anjani-intro-role {
+  position: relative;
+  padding: 0 0.5rem;
+}
+
+.anjani-intro-separator {
+  width: 6px;
+  height: 6px;
+  background-color: var(--anjani-secondary);
+  border-radius: 50%;
+  margin: 0 0.75rem;
+  display: inline-block;
+  opacity: 0.8;
+}
+
+/***** CALL-TO-ACTION BUTTON *****/
+.anjani-intro-cta {
+  margin-top: 2.5rem;
+}
+
+.anjani-intro-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background: var(--anjani-gradient-primary);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--anjani-shadow-md);
+  transition: all var(--anjani-transition-med) ease;
+}
+
+.anjani-intro-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--anjani-shadow-lg);
+}
+
+.anjani-intro-button:active {
+  transform: translateY(1px);
+}
+
+.anjani-intro-button-text {
+  z-index: 2;
+  position: relative;
+}
+
+.anjani-intro-button-icon {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  transition: transform var(--anjani-transition-fast) ease;
+  position: relative;
+  z-index: 2;
+}
+
+.anjani-intro-button:hover .anjani-intro-button-icon {
+  transform: translateX(4px);
+}
+
+.anjani-intro-button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--anjani-gradient-accent);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity var(--anjani-transition-med) ease;
+}
+
+.anjani-intro-button:hover .anjani-intro-button-glow {
+  opacity: 0.8;
+}
+
+.anjani-intro-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--anjani-gradient-primary);
+  z-index: -1;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity var(--anjani-transition-med) ease;
+}
+
+.anjani-intro-button:hover::before {
+  opacity: 0.5;
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.2; }
+  100% { opacity: 0.5; }
+}
+
+/***** AVATAR CONTAINER - CONSISTENT POSITIONING *****/
+/* === Avatar Section Wrapper === */
+.anjani-intro-avatar {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 2;
+  margin-top: 2rem;
+}
+
+/* === Inner Container for Avatar Canvas === */
+.anjani-intro-avatar-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === 3D Canvas Styling === */
+.anjani-intro-avatar canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 12px;
+  outline: none;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* === Avatar Platform Glow === */
+.anjani-intro-avatar-platform {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 20px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.anjani-intro-avatar-platform-glow {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--anjani-primary, #8A2BE2);
+  opacity: 0.5;
+  filter: blur(15px);
+  animation: platform-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes platform-glow {
+  0% { opacity: 0.4; transform: scale(0.95); }
+  100% { opacity: 0.7; transform: scale(1.05); }
+}
+
+
+/***** LOADING SPINNER *****/
+.anjani-avatar-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--anjani-secondary);
+  background-color: rgba(5, 8, 22, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 50;
+}
+
+.anjani-avatar-loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid var(--anjani-secondary);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/***** BACKGROUND DECORATIONS *****/
+.anjani-intro-decoration {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.anjani-intro-decoration.dot-1 {
+  width: 200px;
+  height: 200px;
+  background: var(--anjani-primary);
+  top: 10%;
+  right: 5%;
+  filter: blur(90px);
+  animation: float 8s infinite alternate ease-in-out;
+}
+
+.anjani-intro-decoration.dot-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--anjani-secondary);
+  bottom: 10%;
+  left: 5%;
+  filter: blur(120px);
+  animation: float 12s infinite alternate-reverse ease-in-out;
+}
+
+.anjani-intro-decoration.dot-3 {
+  width: 150px;
+  height: 150px;
+  background: var(--anjani-accent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: pulse 10s infinite ease-in-out;
+}
+
+.anjani-intro-decoration.line-1 {
+  width: 1px;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--anjani-primary), transparent);
+  top: 0;
+  left: 15%;
+  border-radius: 0;
+  opacity: 0.3;
+}
+
+.anjani-intro-decoration.line-2 {
+  width: 1px;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--anjani-secondary), transparent);
+  bottom: 0;
+  right: 15%;
+  border-radius: 0;
+  opacity: 0.3;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/***** RESPONSIVE STYLES - REFINED *****/
+@media (min-width: 768px) {
+  .anjani-intro-container {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 0 2rem;
+  }
+  
+  .anjani-intro-content {
+    flex: 1;
+    text-align: left;
+    padding-right: 2rem;
+    max-width: 50%;
+  }
+  
+  .anjani-intro-title::after {
+    left: 0;
+    width: 100px;
+  }
+  
+  .anjani-intro-description {
+    justify-content: flex-start;
+  }
+  
+  /* Key changes for tablet/desktop view */
+  .anjani-intro-avatar {
+    flex: 1;
+    height: 500px;
+    margin-top: 0;
+    width: 50%;
+    padding-left: 0;
+    padding-bottom: 0;
+    
+    /* Specific positioning for desktop */
+    position: relative;
+    right: 0;
+    align-self: flex-end;
+  }
+  
+  .anjani-intro-avatar-container {
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .anjani-intro-avatar canvas {
+    position: relative;
+    right: 0;
+    max-width: 100%;
+  }
+  
+  .anjani-intro-avatar-platform {
+    right: 20%;
+    left: auto;
+    bottom: 20%;
+    transform: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .anjani-intro-avatar {
+    height: 550px;
+    max-width: 50%;
+  }
+  
+  .anjani-intro-avatar-platform {
+    bottom: 15%;
+    right: 25%;
+    width: 180px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .anjani-intro-container {
+    gap: 4rem;
+  }
+  
+  .anjani-intro-avatar {
+    height: 600px;
+  }
+}
+
+/***** SPECIAL FIXES FOR BROWSERS *****/
+/* Safari fix */
+@supports (-webkit-touch-callout: none) {
+  #anjani-intro.anjani-intro {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+/* Firefox fix */
+@-moz-document url-prefix() {
+  .anjani-intro-avatar canvas {
+    position: relative;
+  }
+}
+
+/***** ACCESSIBILITY & MOTION PREFERENCES *****/
+@media (prefers-reduced-motion: reduce) {
+  .anjani-intro-wave,
+  .anjani-intro-decoration,
+  .anjani-intro-button-icon,
+  .anjani-intro-avatar-platform-glow {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .anjani-intro-button:hover {
+    transform: none;
+  }
+}

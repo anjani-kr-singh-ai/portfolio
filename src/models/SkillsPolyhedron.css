@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/***** ROOT VARIABLES *****/
+:root {
+  --anjani-primary: #8A2BE2;
+  --anjani-secondary: #00BFFF;
+  --anjani-accent: #FF00FF;
+  --anjani-dark: #050816;
+  --anjani-light: #ffffff;
+}
+
+/***** CONTAINER STYLING *****/
+.anjani-polyhedron-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-color: var(--anjani-dark);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/***** SCENE STYLING *****/
+.anjani-polyhedron-scene {
+  width: 100%;
+  height: 100%;
+}
+
+/***** GLOW EFFECT *****/
+.anjani-polyhedron-glow {
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, 
+    rgba(138, 43, 226, 0.4) 0%, 
+    rgba(138, 43, 226, 0.2) 40%, 
+    rgba(0, 0, 0, 0) 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/***** ANIMATED PARTICLES *****/
+.anjani-polyhedron-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.anjani-polyhedron-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--anjani-primary);
+  border-radius: 50%;
+  opacity: 0.5;
+  box-shadow: 0 0 10px 2px rgba(138, 43, 226, 0.5);
+  animation: float-particle 15s infinite linear;
+}
+
+/* Generate 15 different particles */
+@keyframes float-particle {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+/* Unique positions for particles */
+.anjani-polyhedron-particle.particle-1 { --tx: 100px; --ty: -200px; top: 80%; left: 20%; animation-duration: 20s; }
+.anjani-polyhedron-particle.particle-2 { --tx: -150px; --ty: -300px; top: 90%; left: 40%; animation-duration: 25s; }
+.anjani-polyhedron-particle.particle-3 { --tx: 200px; --ty: -250px; top: 75%; left: 60%; animation-duration: 22s; }
+.anjani-polyhedron-particle.particle-4 { --tx: -120px; --ty: -280px; top: 85%; left: 80%; animation-duration: 28s; }
+.anjani-polyhedron-particle.particle-5 { --tx: 180px; --ty: -320px; top: 95%; left: 10%; animation-duration: 24s; }
+.anjani-polyhedron-particle.particle-6 { --tx: -220px; --ty: -200px; top: 70%; left: 30%; animation-duration: 26s; }
+.anjani-polyhedron-particle.particle-7 { --tx: 120px; --ty: -350px; top: 80%; left: 50%; animation-duration: 21s; }
+.anjani-polyhedron-particle.particle-8 { --tx: -180px; --ty: -220px; top: 90%; left: 70%; animation-duration: 23s; }
+.anjani-polyhedron-particle.particle-9 { --tx: 250px; --ty: -300px; top: 75%; left: 90%; animation-duration: 27s; }
+.anjani-polyhedron-particle.particle-10 { --tx: -150px; --ty: -250px; top: 85%; left: 25%; animation-duration: 29s; }
+.anjani-polyhedron-particle.particle-11 { --tx: 180px; --ty: -280px; top: 95%; left: 45%; animation-duration: 30s; }
+.anjani-polyhedron-particle.particle-12 { --tx: -200px; --ty: -320px; top: 70%; left: 65%; animation-duration: 19s; }
+.anjani-polyhedron-particle.particle-13 { --tx: 150px; --ty: -200px; top: 80%; left: 85%; animation-duration: 26s; }
+.anjani-polyhedron-particle.particle-14 { --tx: -120px; --ty: -350px; top: 90%; left: 15%; animation-duration: 22s; }
+.anjani-polyhedron-particle.particle-15 { --tx: 220px; --ty: -220px; top: 75%; left: 35%; animation-duration: 24s; }
+
+/***** TIMESTAMP BADGE *****/
+.anjani-polyhedron-timestamp {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Space Grotesk', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+.anjani-polyhedron-timestamp-icon {
+  color: var(--anjani-primary);
+}
+
+/***** USER BADGE *****/
+.anjani-polyhedron-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  background: rgba(10, 14, 36, 0.7);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.anjani-polyhedron-badge-icon {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.anjani-polyhedron-badge-text {
+  font-size: 0.85rem;
+  color: var(--anjani-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Grotesk', monospace;
+}
+
+.anjani-polyhedron-badge-login {
+  font-weight: 600;
+  color: var(--anjani-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+/***** INSTRUCTIONS *****/
+.anjani-polyhedron-instructions {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Space Grotesk', monospace;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+/***** RESPONSIVE STYLING *****/
+@media (max-width: 768px) {
+  .anjani-polyhedron-container {
+    height: 450px;
+  }
+  
+  .anjani-polyhedron-timestamp,
+  .anjani-polyhedron-badge {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .anjani-polyhedron-instructions {
+    bottom: 0.75rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+  }
+}
+
+/***** ACCESSIBILITY *****/
+@media (prefers-reduced-motion: reduce) {
+  .anjani-polyhedron-particle {
+    animation: none !important;
+  }
+}
